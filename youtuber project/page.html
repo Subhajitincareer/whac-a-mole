@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Slots</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            /* 6 columns */
+            grid-gap: 15px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .slot {
+            position: relative;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 150px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .slot:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .slot img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .placeholder {
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .slot-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        // Create default image if image fails to load
+        function createDefaultThumbnail() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 150;
+            canvas.height = 150;
+            const ctx = canvas.getContext('2d');
+
+            // Draw background
+            ctx.fillStyle = '#4CAF50';
+            ctx.fillRect(0, 0, 150, 150);
+
+            // Draw text
+            ctx.fillStyle = 'white';
+            ctx.font = '20px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Whac-A-Mole', 75, 75);
+
+            return canvas.toDataURL();
+        }
+
+        // Create default image for Candy Crush if image fails to load
+        function createCandyThumbnail() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 150;
+            canvas.height = 150;
+            const ctx = canvas.getContext('2d');
+
+            // Draw background
+            ctx.fillStyle = '#FF69B4'; // Pink background for Candy
+            ctx.fillRect(0, 0, 150, 150);
+
+            // Draw candy symbols
+            const candies = ['🍬', '🍭', '🍪'];
+            ctx.font = '30px Arial';
+            ctx.textAlign = 'center';
+            candies.forEach((candy, index) => {
+                ctx.fillText(candy, 75, 50 + (index * 40));
+            });
+
+            return canvas.toDataURL();
+        }
+
+        function openGame(gamePath) {
+            window.open(gamePath, '_blank');
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Select a Game Slot</h1>
+    <div id="grid">
+        <!-- First slot with the mole game -->
+        <div class="slot" onclick="openGame('index.html')">
+            <img src="images/mole-thumbnail.jpg" alt="Mole Game"
+                onerror="this.onerror=null; this.src='images/default.png'; this.alt='Whac-A-Mole'">
+            <div class="slot-title">Whac-A-Mole</div>
+        </div>
+        <!-- Second slot with the candy game -->
+        <div class="slot" onclick="openGame('candy.html')">
+            <img src="images/candy-thumbnail.jpg" alt="Candy Crush"
+                onerror="this.onerror=null; this.src=createCandyThumbnail(); this.alt='Candy Crush'">
+            <div class="slot-title">Candy Crush</div>
+        </div>
+        <!-- Remaining slots as placeholders -->
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+        <div class="slot placeholder">Empty Slot</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candy Crush Game</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles/candy.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-info">
+            <div class="score-board">
+                <span>Score: </span>
+                <span id="score">0</span>
+            </div>
+            <div class="moves">
+                <span>Moves: </span>
+                <span id="moves">0</span>
+            </div>
+        </div>
+        
+        <div id="board"></div>
+        
+        <div class="controls">
+            <button id="start-btn">Start Game</button>
+            <button id="restart-btn">Restart</button>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="scripts/candy.js"></script>
+</body>
+</html>
